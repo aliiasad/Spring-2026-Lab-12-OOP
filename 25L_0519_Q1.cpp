@@ -48,10 +48,12 @@ int Character :: getAge()   {
 
 void Character :: setName(string name) {
     this-> name = name;
+    return;
 }
 
 void Character :: setAge(int age)   {
     this-> age = age;
+    return;
 }
 
 void Character :: displayCharacterInfo()    {
@@ -81,3 +83,44 @@ class Human : virtual public Character  {
         void displayHumanTraits();
         void think();
 };
+
+Human :: Human()    {
+    this-> nationality = "Unknown";
+    this-> profession = "Unknown";
+}
+
+Human :: Human(string nationality, string profession)   {
+    this-> nationality = nationality;
+    this-> profession = profession;
+}
+
+Human :: ~Human()   {}; // not needed but precautionary
+
+string Human :: getNationality()    {
+    return nationality;
+}
+
+string Human :: getProfession() {
+    return profession;
+}
+
+void Human :: setNationality(string nationality)    {
+    this-> nationality = nationality;
+    return;
+}
+
+void Human :: setProfession(string profession)  {
+    this-> profession = profession;
+    return;
+}
+
+void Human :: displayHumanTraits() {
+    cout << "=== Human Information ===" << endl;
+    displayCharacterInfo();
+    cout << "Nationality: " << nationality << endl;
+    cout << "Personality: " << profession << endl;
+}
+
+void Human :: think() {
+    cout << getName() << " uses logic and human intelligence to solve problems." << endl;
+}
