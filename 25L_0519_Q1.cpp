@@ -25,3 +25,37 @@ class Character {
         void displayCharacterInfo();
 
 };
+
+Character :: Character()    {
+    this-> name = "Unknown";
+    age = 0;
+}
+
+Character :: Character(string name, int age)    {
+    this-> name = name;
+    this-> age = age;
+}
+
+Character :: ~Character()   {}; // not needed but precautionary
+
+string Character :: getName()    {
+    return name;
+}
+
+int Character :: getAge()   {
+    return age;
+}
+
+void Character :: setName(string name) {
+    this-> name = name;
+}
+
+void Character :: setAge(int age)   {
+    this-> age = age;
+}
+
+void Character :: displayCharacterInfo()    {
+    cout << "Name: " << name << endl;
+    cout << "Age : " << age  << endl;
+    return;
+}
