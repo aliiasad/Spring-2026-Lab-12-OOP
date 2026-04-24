@@ -59,3 +59,25 @@ void Character :: displayCharacterInfo()    {
     cout << "Age : " << age  << endl;
     return;
 }
+
+class Human : virtual public Character  {
+    private:
+        string nationality;
+        string profession;
+    public:
+        Human();
+        Human(string, string);
+        ~Human();
+
+        // getters
+        string getNationality();
+        string getProfession();
+
+        // setters
+        void setNationality(string);
+        void setProfession(string);
+
+        // helper
+        void displayHumanTraits();
+        void think();
+};
