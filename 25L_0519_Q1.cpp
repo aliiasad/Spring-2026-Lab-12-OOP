@@ -8,7 +8,7 @@ class Character {
         string name;
         int age;
     public:
-        // constructors / destructors
+        // constructors / destructor
         Character();
         Character(string, int);
         ~Character();
@@ -67,6 +67,7 @@ class Human : virtual public Character  {
         string nationality;
         string profession;
     public:
+        // constructors / destructor
         Human();
         Human(string, string);
         ~Human();
@@ -124,3 +125,92 @@ void Human :: displayHumanTraits() {
 void Human :: think() {
     cout << getName() << " uses logic and human intelligence to solve problems." << endl;
 }
+
+class Alien : virtual public Character{
+    private:
+        string planetOrigin;
+        string specialPower;
+    public:
+        // constructors / destructor
+        Alien();
+        Alien(string, string);
+        ~Alien();
+
+        // getters
+        string getPlanet();
+        string getPower();
+
+        // setters
+        void setPlanet(string);
+        void setPower(string);
+
+        // helper
+        void displayAlienTraits();
+        void usePower();
+};
+
+Alien :: Alien()    {
+    this-> planetOrigin = "Unknown";
+    this-> specialPower = "Unknown";
+}
+
+Alien :: Alien(string planetOrigin, string specialPower)    {
+    this-> planetOrigin = planetOrigin;
+    this-> specialPower = planetOrigin;
+}
+
+Alien :: ~Alien()   {}; // precaution
+
+string Alien :: getPlanet() {
+    return planetOrigin;
+}
+
+string Alien :: getPower() { 
+    return specialPower;
+}
+
+void Alien :: setPlanet(string planetOrigin) { 
+    this->planetOrigin = planetOrigin;
+    return;
+}
+void Alien :: setPower(string specialPower) { 
+    this->specialPower = specialPower;
+    return; 
+}
+
+void Alien :: displayAlienTraits() {
+    cout << "=== Alien Information ===" << endl;
+    displayCharacterInfo();
+    cout << "Planet of Origin: " << planetOrigin << endl;
+    cout << "Special Power   : " << specialPower << endl;
+    return;
+}
+
+void Alien :: usePower() {
+    cout << getName() << " uses " << specialPower << " to unleash a blazing attack!" << endl;
+    return;
+}
+
+class HumanAlienCombo : public Human, public Alien {
+    private:
+        int omnitrixID;
+        string omnitrixVersion;
+    public:
+        // constrictors / destructor
+        HumanAlienCombo();
+        HumanAlienCombo(string, int, string, string, string, string, int, string);
+        ~HumanAlienCombo();
+
+        // getters
+        int getOmnitrixID();
+        string getOmnitrixVersion();
+
+        // setters
+        void setOmnitrixID(int);
+        void setOmnitrixVersion(string);
+
+        // helpers
+        void displayHybridProfile();
+        void activateOmnitrix();
+        void displayAbilities();
+};
