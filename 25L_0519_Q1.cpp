@@ -214,3 +214,59 @@ class HumanAlienCombo : public Human, public Alien {
         void activateOmnitrix();
         void displayAbilities();
 };
+
+HumanAlienCombo :: HumanAlienCombo() : Character(), Human(), Alien()   {
+    this-> omnitrixID = 0;
+    this-> omnitrixVersion = "Unknown";
+}
+
+HumanAlienCombo :: HumanAlienCombo(string name, int age, string nationality, string profession, 
+    string planetOrigin, string specialPower, int omnitrixID, string omnitrixVersion) : Character(name, age),
+    Human(nationality, profession), Alien(planetOrigin, specialPower)   {
+    this-> omnitrixID = omnitrixID;
+    this-> omnitrixVersion = omnitrixVersion;
+}
+
+HumanAlienCombo::~HumanAlienCombo() {}  // precaution
+ 
+int HumanAlienCombo :: getOmnitrixID() { 
+    return omnitrixID;
+}
+
+string HumanAlienCombo :: getOmnitrixVersion() { 
+    return omnitrixVersion;
+}
+
+void HumanAlienCombo :: setOmnitrixID(int omnitrixID)   {
+    this->omnitrixID = omnitrixID;
+    return;
+}
+
+void HumanAlienCombo :: setOmnitrixVersion(string omnitrixVersion) { 
+    this->omnitrixVersion = omnitrixVersion;
+    return;
+}
+
+void HumanAlienCombo :: displayHybridProfile() {
+    cout << "=== Ben10 Hybrid Profile (Fixed Diamond) ===" << endl;
+    displayCharacterInfo();                          // single copy via virtual inheritance
+    cout << "Nationality : " << getNationality() << endl;
+    cout << "Profession : " << getProfession() << endl;
+    cout << "Planet Origin : " << getPlanet() << endl;
+    cout << "Special Power : " << getPower() << endl;
+    cout << "Omnitrix ID : " << omnitrixID << endl;
+    cout << "Omnitrix Version : " << omnitrixVersion << endl;
+    return;
+}
+ 
+void HumanAlienCombo :: activateOmnitrix() {
+    cout << "Omnitrix activated -- transformation sequence initiated!" << endl;
+    return;
+}
+ 
+void HumanAlienCombo :: displayAbilities() {
+    think();
+    usePower();
+    activateOmnitrix();
+    return;
+}
